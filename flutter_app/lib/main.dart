@@ -10,7 +10,13 @@ void main() {
              child: Text("Meu App"),
             )
           ),
-        body: Text("teste"),
+        body: Column(
+          children: [
+            Text("Hello World"),
+            Text("23/03/2026"),
+
+          ],
+        ),
       ),
     )
   );
