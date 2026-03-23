@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'; // Não esqueça do import!
 
 void main() {
   runApp(
@@ -6,18 +6,20 @@ void main() {
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.green,
-          title: Center(
-             child: Text("Meu App"),
-            )
+          title: const Center(
+            child: Text("Meu App"),
           ),
-        body: Column(
-          children: [
-            Text("Hello World"),
-            Text("23/03/2026"),
-
-          ],
+        ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              Text("Hello World"),
+              Text("23/03/2026"),
+            ],
+          ),
         ),
       ),
-    )
+    ),
   );
 }
