@@ -11,7 +11,7 @@ void main() {
           ),
         ),
         body: Center(
-          child: Column(
+          child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: const [
               Text("Hello World"),
