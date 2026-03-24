@@ -15,7 +15,8 @@ void main() {
             mainAxisAlignment: MainAxisAlignment.center,
             children: const [
               Text("Hello World"),
-              Text("23/03/2026"),
+              SizedBox(width: 10), // Espaço entre os textos
+              Icon(Icons.add)
             ],
           ),
         ),
