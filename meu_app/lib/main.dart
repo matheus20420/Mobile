@@ -2,12 +2,14 @@ import 'package:flutter/material.dart'; // Não esqueça do import!
 
 void main() {
   runApp(
-    MeuApp(),
+    StatelessApp(),
   );
 }
 
-class MeuApp extends StatelessWidget {
-  MeuApp({super.key});
+
+
+class StatelessApp extends StatelessWidget {
+  StatelessApp({super.key});
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -29,6 +31,35 @@ class MeuApp extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+
+class PaginaInicial extends StatefulWidget {
+  @override
+  State<PaginaInicial> createState() => _PaginaInicialState();
+
+}
+
+class _PaginaInicialState extends State<PaginaInicial> {
+  String texto = "Hello World";
+
+
+  @override
+  Widget build(BuildContext context){
+    return Center(
+      child: Column(
+        children: [
+          Text(texto),
+          ElevatedButton(
+            child: Text("Mudar Texto"),
+            onPressed: () {
+              texto = "Olá Mundo (Traduzido)";
+            }
+          ),
+        ],
+      )
     );
   }
 }
