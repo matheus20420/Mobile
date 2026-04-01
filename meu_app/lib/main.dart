@@ -1,65 +1,58 @@
 import 'package:flutter/material.dart'; // Não esqueça do import!
 
 void main() {
-  runApp(
-    StatelessApp(),
-  );
+  runApp(StatelessApp());
 }
-
-
 
 class StatelessApp extends StatelessWidget {
   StatelessApp({super.key});
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: "Meu App",
       home: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.green,
-          title: const Center(
-            child: Text("Meu App"),
-          ),
+          backgroundColor: Color.fromRGBO(53, 53, 53, 1),
+          titleTextStyle: TextStyle(color: Color.fromRGBO(255, 255, 255, 1)),
+          title: Text("Meu App"),
         ),
-        body: Center(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              Text("Hello World"),
-              SizedBox(width: 10), // Espaço entre os textos
-              Icon(Icons.add)
-            ],
-          ),
-        ),
+        body: PaginaInicial(),
       ),
     );
   }
 }
 
-
 class PaginaInicial extends StatefulWidget {
   @override
   State<PaginaInicial> createState() => _PaginaInicialState();
-
 }
 
 class _PaginaInicialState extends State<PaginaInicial> {
   String texto = "Hello World";
-
+  int contador = 0;
 
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return Center(
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(texto),
           ElevatedButton(
             child: Text("Mudar Texto"),
             onPressed: () {
-              texto = "Olá Mundo (Traduzido)";
-            }
+              setState(() {
+                ++contador;
+                if (contador > 1) {
+                  texto = "Hello World (o botão foi clicado $contador vezes";
+                } else {
+                  texto = "Hello World (o botão foi clicado $contador vez";
+                }
+              });
+            },
           ),
         ],
-      )
+      ),
     );
   }
 }
