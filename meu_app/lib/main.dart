@@ -30,6 +30,9 @@ class PaginaInicial extends StatefulWidget {
 class _PaginaInicialState extends State<PaginaInicial> {
   String texto = "Hello World";
   int contador = 0;
+  final TextEditingController _textEditingController = TextEditingController();
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +41,15 @@ class _PaginaInicialState extends State<PaginaInicial> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(texto),
+
+          TextField(
+            controller: _textEditingController,
+            decoration: InputDecoration(
+              border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(35))),
+              labelText: "Digite algo",
+            ),
+          ),
+
           ElevatedButton(
             child: Text("Mudar Texto"),
             onPressed: () {
@@ -51,6 +63,7 @@ class _PaginaInicialState extends State<PaginaInicial> {
               });
             },
           ),
+
         ],
       ),
     );
