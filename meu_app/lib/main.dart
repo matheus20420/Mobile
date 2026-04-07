@@ -28,7 +28,8 @@ class PaginaInicial extends StatefulWidget {
 }
 
 class _PaginaInicialState extends State<PaginaInicial> {
-  String texto = "Hello World";
+  String texto = "O Botão ainda não foi clicado";
+  String nome = "Qual seu nome?";
   int contador = 0;
   final TextEditingController _textEditingController = TextEditingController();
 
@@ -40,30 +41,71 @@ class _PaginaInicialState extends State<PaginaInicial> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(texto),
+          Text(nome),
 
           TextField(
             controller: _textEditingController,
             decoration: InputDecoration(
               border: OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(35))),
-              labelText: "Digite algo",
+              labelText: "Digite seu nome",
             ),
           ),
 
           ElevatedButton(
-            child: Text("Mudar Texto"),
+            child: Text("Definir Nome"),
             onPressed: () {
               setState(() {
-                ++contador;
-                if (contador > 1) {
-                  texto = "Hello World (o botão foi clicado $contador vezes";
-                } else {
-                  texto = "Hello World (o botão foi clicado $contador vez";
+                if (_textEditingController.text.isEmpty) {
+                  nome = "Olá, Indigente!";
+                }else {
+                  nome = "Olá, ${_textEditingController.text}!";
                 }
               });
             },
           ),
 
+
+
+
+
+          SizedBox(height: 35),
+
+
+
+
+
+
+          Text(texto),
+
+          ElevatedButton(
+            child: 
+            Text("Botão"),
+            onPressed: () {
+              setState(() {
+                ++contador;
+                if (contador > 1) {
+                  texto = "O botão foi clicado $contador vezes";
+                } else {
+                  texto = "O botão foi clicado $contador vez";
+                }
+              });
+            },
+          ),
+
+
+          SizedBox(height: 35),
+
+          ElevatedButton(
+            child: Text("Resetar"),
+            onPressed: () {
+              setState(() {
+                contador = 0;
+                texto = "O Botão ainda não foi clicado";
+                nome = "Qual seu nome?";
+                _textEditingController.clear();
+              });
+            },
+          )
         ],
       ),
     );
